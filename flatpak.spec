@@ -37,7 +37,7 @@ This package contains the pkg-config file and development headers for %{name}.
  %configure --with-priv-mode=none \
             --with-system-bubblewrap --enable-docbook-docs $CONFIGFLAGS)
 %make_build V=1
-sed -i 's/idm[0-9]\{5,32\}\"/idm123456789123456\"/g' /home/abuild/rpmbuild/BUILD/flatpak-1.0.3/doc/flatpak-docs.html
+sed -i 's/idm[0-9]\{5,32\}\"/idm123456789123456\"/g' %{_builddir}/flatpak-1.0.3/doc/flatpak-docs.html
 
 %install
 %make_install
