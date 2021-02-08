@@ -1,0 +1,42 @@
+From b3dc7f6af7f2812d5b4a42592976c5b9d7febaad Mon Sep 17 00:00:00 2001
+From: wangxiao65 <wangxiao65@huawei.com>
+Date: Sun, 7 Feb 2021 12:02:08 +0800
+Subject: [PATCH] modify automake version
+When Makefile.am is modified, automake needs to be executed.
+if the version of automake in the compile enviroment is inconsistent
+with the version specified in configure, the compile will fail.
+
+---
+ configure    | 2 +-
+ configure.ac | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/configure b/configure
+index 13abc0a..da4fa78 100755
+--- a/configure
++++ b/configure
+@@ -12762,7 +12762,7 @@ CC=$lt_save_CC
+ ac_config_headers="$ac_config_headers config.h"
+ 
+ 
+-am__api_version='1.15'
++am__api_version='1.16'
+ 
+ # Find a good install program.  We prefer a C program (faster),
+ # so one script is as good as another.  But avoid the broken or
+diff --git a/configure.ac b/configure.ac
+index 202ffc8..4ca143e 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -48,7 +48,7 @@ LT_INIT([disable-static])
+ AC_CONFIG_SRCDIR([common/flatpak-dir.c])
+ AC_CONFIG_HEADERS([config.h])
+ AC_CONFIG_MACRO_DIR([m4])
+-AM_INIT_AUTOMAKE([1.13.4 no-define no-dist-gzip dist-xz tar-ustar foreign subdir-objects])
++AM_INIT_AUTOMAKE([1.16.2 no-define no-dist-gzip dist-xz tar-ustar foreign subdir-objects])
+ AC_PROG_SED
+ AC_PROG_YACC
+ 
+-- 
+2.23.0
+
