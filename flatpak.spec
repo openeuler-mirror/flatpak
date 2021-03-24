@@ -1,6 +1,6 @@
 Name:           flatpak
 Version:        1.0.3
-Release:        3
+Release:        4
 Summary:        Application deployment framework for desktop apps
 License:        LGPLv2+
 URL:            http://flatpak.org/
@@ -11,6 +11,9 @@ Patch0002:      CVE-2021-21261-2.patch
 Patch0003:      CVE-2021-21261-3.patch
 Patch0004:      CVE-2021-21261-4.patch
 Patch0005:      CVE-2021-21261-5.patch
+Patch0006:      CVE-2021-21381-1.patch
+Patch0007:      CVE-2021-21381-2.patch
+Patch0008:      CVE-2021-21381-3.patch
 
 BuildRequires:  pkgconfig(appstream-glib) pkgconfig(gio-unix-2.0) pkgconfig(gobject-introspection-1.0) >= 1.40.0 pkgconfig(json-glib-1.0) pkgconfig(libarchive) >= 2.8.0
 BuildRequires:  pkgconfig(libsoup-2.4) pkgconfig(libxml-2.0) >= 2.4 pkgconfig(ostree-1) >= 2018.7 pkgconfig(polkit-gobject-1) pkgconfig(libseccomp) pkgconfig(xau)
@@ -105,7 +108,10 @@ flatpak remote-list --system &> /dev/null || :
 %{_mandir}/man5/flatpak-remote.5*
 
 %changelog
-* Sun Feb 07 2021 wangxiao <wangxiao65> - 1.0.3-3
+* Wed Mar 24 2021 wangxiao <wangxiao65@huawei.com> - 1.0.3-4
+- Fix CVE-2021-21381
+
+* Sun Feb 07 2021 wangxiao <wangxiao65@huawei.com> - 1.0.3-3
 - Modify automake version
 - Fix CVE-2021-21261
 
