@@ -1,0 +1,33 @@
+From 3fc8c672676ae016f8e7cc90481b2feecbad9861 Mon Sep 17 00:00:00 2001
+From: Simon McVittie <smcv@collabora.com>
+Date: Fri, 8 Oct 2021 19:00:13 +0100
+Subject: [PATCH] Fix handling of syscalls only allowed by --devel
+
+This was incorrectly looking at errno instead of -r.
+
+Fixes: 0b38b0f0 "run: Handle unknown syscalls as intended"
+Signed-off-by: Simon McVittie <smcv@collabora.com>
+
+Conflict:NA
+Reference:https://github.com/flatpak/flatpak/commit/3fc8c672676ae016f8e7cc90481b2feecbad9861
+
+---
+ common/flatpak-run.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/common/flatpak-run.c b/common/flatpak-run.c
+index 11f2f19..0130aef 100644
+--- a/common/flatpak-run.c
++++ b/common/flatpak-run.c
+@@ -2296,7 +2296,7 @@ setup_seccomp (FlatpakBwrap   *bwrap,
+             r = seccomp_rule_add (seccomp, SCMP_ACT_ERRNO (errnum), scall, 0);
+ 
+           /* See above for the meaning of EFAULT. */
+-          if (errno == EFAULT)
++          if (r == -EFAULT)
+             flatpak_debug2 ("Unable to block syscall %d: syscall not known to libseccomp?",
+                             scall);
+           else if (r < 0)
+-- 
+2.19.1
+
