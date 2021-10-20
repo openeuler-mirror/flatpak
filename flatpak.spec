@@ -1,6 +1,6 @@
 Name:           flatpak
 Version:        1.0.3
-Release:        6
+Release:        7
 Summary:        Application deployment framework for desktop apps
 License:        LGPLv2+
 URL:            http://flatpak.org/
@@ -16,6 +16,16 @@ Patch0007:      CVE-2021-21381-2.patch
 Patch0008:      CVE-2021-21381-3.patch
 Patch0009:      CVE-2019-8308.patch
 Patch0010:	CVE-2019-10063.patch
+Patch6000:      backport-0001-CVE-2021-41133.patch
+Patch6001:      backport-0002-CVE-2021-41133.patch
+Patch6002:      backport-0003-CVE-2021-41133.patch
+Patch6003:      backport-0004-CVE-2021-41133.patch
+Patch6004:      backport-0005-CVE-2021-41133.patch
+Patch6005:      backport-0006-CVE-2021-41133.patch
+Patch6006:      backport-0007-CVE-2021-41133.patch
+Patch6007:      backport-0008-CVE-2021-41133.patch
+Patch6008:      backport-run-Handle-unknown-syscalls-as-intended.patch
+Patch6009:      backport-Fix-handling-of-syscalls-only-allowed-by-devel.patch
 
 BuildRequires:  pkgconfig(appstream-glib) pkgconfig(gio-unix-2.0) pkgconfig(gobject-introspection-1.0) >= 1.40.0 pkgconfig(json-glib-1.0) pkgconfig(libarchive) >= 2.8.0
 BuildRequires:  pkgconfig(libsoup-2.4) pkgconfig(libxml-2.0) >= 2.4 pkgconfig(ostree-1) >= 2018.7 pkgconfig(polkit-gobject-1) pkgconfig(libseccomp) pkgconfig(xau)
@@ -110,6 +120,9 @@ flatpak remote-list --system &> /dev/null || :
 %{_mandir}/man5/flatpak-remote.5*
 
 %changelog
+* Wed Oct 20 2021 zhanzhimin <zhanhzimin@huawei.com> - 1.0.3-7
+- Fix CVE-2021-41133
+
 * Mon Sep 27 2021 houyingchao <houyingchao@huawei.com> - 1.0.3-6
 - Fix CVE-2019-10063
 
