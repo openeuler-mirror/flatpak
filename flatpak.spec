@@ -1,6 +1,6 @@
 Name:           flatpak
 Version:        1.10.2
-Release:        1
+Release:        2
 Summary:        Application deployment framework for desktop apps
 License:        LGPLv2+
 URL:            http://flatpak.org/
@@ -9,6 +9,16 @@ Patch0000:      modify-automake-version.patch
 Patch0002:      CVE-2021-21261-2.patch
 Patch0004:      CVE-2021-21261-4.patch
 Patch0005:	0001-OCI-Switch-to-pax-format-for-tar-archives.patch
+Patch6000:      backport-0001-CVE-2021-41133.patch
+Patch6001:      backport-0002-CVE-2021-41133.patch
+Patch6002:      backport-0003-CVE-2021-41133.patch
+Patch6003:      backport-0004-CVE-2021-41133.patch
+Patch6004:      backport-0005-CVE-2021-41133.patch
+Patch6005:      backport-0006-CVE-2021-41133.patch
+Patch6006:      backport-0007-CVE-2021-41133.patch
+Patch6007:      backport-0008-CVE-2021-41133.patch
+Patch6008:      backport-run-Handle-unknown-syscalls-as-intended.patch
+Patch6009:      backport-Fix-handling-of-syscalls-only-allowed-by-de.patch
 
 BuildRequires:  pkgconfig(appstream-glib) pkgconfig(gio-unix-2.0) pkgconfig(gobject-introspection-1.0) >= 1.40.0 pkgconfig(json-glib-1.0) pkgconfig(libarchive) >= 2.8.0
 BuildRequires:  pkgconfig(libsoup-2.4) pkgconfig(libxml-2.0) >= 2.4 pkgconfig(ostree-1) >= 2020.8 pkgconfig(polkit-gobject-1) pkgconfig(libseccomp) pkgconfig(xau)
@@ -114,6 +124,9 @@ flatpak remote-list --system &> /dev/null || :
 %{_mandir}/man5/flatpak-remote.5*
 
 %changelog
+* Thu Oct 21 2021 yaqiangchen <chenyaqiang@huawei.com> - 1.10.2-2
+- Fix CVE-2021-41133
+
 * Tue Jun 29 2021 weijin deng <weijin.deng@turbolinux.com.cn> - 1.10.2-1
 - Upgrade to 1.10.2
 - Delete patches that existed in this version 1.10.2, delete sed option
