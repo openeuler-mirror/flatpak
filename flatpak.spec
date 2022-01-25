@@ -1,6 +1,6 @@
 Name:           flatpak
 Version:        1.10.2
-Release:        3
+Release:        4
 Summary:        Application deployment framework for desktop apps
 License:        LGPLv2+
 URL:            http://flatpak.org/
@@ -20,6 +20,7 @@ Patch6007:      backport-0008-CVE-2021-41133.patch
 Patch6008:      backport-run-Handle-unknown-syscalls-as-intended.patch
 Patch6009:      backport-Fix-handling-of-syscalls-only-allowed-by-de.patch
 Patch6010:      backport-support-new-pyparsing.patch
+Patch6011:      backport-CVE-2022-21682.patch
 
 BuildRequires:  pkgconfig(appstream-glib) pkgconfig(gio-unix-2.0) pkgconfig(gobject-introspection-1.0) >= 1.40.0 pkgconfig(json-glib-1.0) pkgconfig(libarchive) >= 2.8.0
 BuildRequires:  pkgconfig(libsoup-2.4) pkgconfig(libxml-2.0) >= 2.4 pkgconfig(ostree-1) >= 2020.8 pkgconfig(polkit-gobject-1) pkgconfig(libseccomp) pkgconfig(xau)
@@ -125,6 +126,9 @@ flatpak remote-list --system &> /dev/null || :
 %{_mandir}/man5/flatpak-remote.5*
 
 %changelog
+* Tue Jan 25 2022 hanhui <hanhui15@huawei.com> - 1.10.2-4
+- Fix CVE-2022-21682
+
 * Tue Jan 25 2022 hanhui <hanhui15@huawei.com> - 1.10.2-3
 - Fix compiler error when using pyparsing >= 3.0.2
 
