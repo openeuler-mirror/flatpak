@@ -1,6 +1,6 @@
 Name:           flatpak
 Version:        1.0.3
-Release:        8
+Release:        9
 Summary:        Application deployment framework for desktop apps
 License:        LGPLv2+
 URL:            http://flatpak.org/
@@ -30,6 +30,12 @@ Patch6010:      backport-0001-CVE-2021-43860.patch
 Patch6011:      backport-0002-CVE-2021-43860.patch
 Patch6012:      backport-0003-CVE-2021-43860.patch
 Patch6013:      backport-0004-CVE-2021-43860.patch
+Patch6014:	backport-0001-CVE-2022-21682.patch
+Patch6015:	backport-0002-CVE-2022-21682.patch
+Patch6016:	backport-0003-CVE-2022-21682.patch
+Patch6017:	backport-0004-CVE-2022-21682.patch
+Patch6018:	backport-0005-CVE-2022-21682.patch
+Patch6019:	backport-0006-CVE-2022-21682.patch
 
 BuildRequires:  pkgconfig(appstream-glib) pkgconfig(gio-unix-2.0) pkgconfig(gobject-introspection-1.0) >= 1.40.0 pkgconfig(json-glib-1.0) pkgconfig(libarchive) >= 2.8.0
 BuildRequires:  pkgconfig(libsoup-2.4) pkgconfig(libxml-2.0) >= 2.4 pkgconfig(ostree-1) >= 2018.7 pkgconfig(polkit-gobject-1) pkgconfig(libseccomp) pkgconfig(xau)
@@ -124,6 +130,9 @@ flatpak remote-list --system &> /dev/null || :
 %{_mandir}/man5/flatpak-remote.5*
 
 %changelog
+* Tue Feb 15 2022 dongyuzhen <dongyuzhen@h-partners.com> - 1.0.3-9
+- Fix CVE-2022-21682
+
 * Sat Jan 29 2022 dongyuzhen <dongyuzhen@h-partners.com> - 1.0.3-8
 - Fix CVE-2021-43860
 
