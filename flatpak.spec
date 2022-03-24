@@ -1,31 +1,10 @@
 Name:           flatpak
-Version:        1.10.2
-Release:        5
+Version:        1.12.6
+Release:        1
 Summary:        Application deployment framework for desktop apps
 License:        LGPLv2+
 URL:            http://flatpak.org/
 Source0:        https://github.com/flatpak/flatpak/releases/download/%{version}/%{name}-%{version}.tar.xz
-Patch0000:      modify-automake-version.patch
-Patch0002:      CVE-2021-21261-2.patch
-Patch0004:      CVE-2021-21261-4.patch
-Patch0005:	0001-OCI-Switch-to-pax-format-for-tar-archives.patch
-Patch6000:      backport-0001-CVE-2021-41133.patch
-Patch6001:      backport-0002-CVE-2021-41133.patch
-Patch6002:      backport-0003-CVE-2021-41133.patch
-Patch6003:      backport-0004-CVE-2021-41133.patch
-Patch6004:      backport-0005-CVE-2021-41133.patch
-Patch6005:      backport-0006-CVE-2021-41133.patch
-Patch6006:      backport-0007-CVE-2021-41133.patch
-Patch6007:      backport-0008-CVE-2021-41133.patch
-Patch6008:      backport-run-Handle-unknown-syscalls-as-intended.patch
-Patch6009:      backport-Fix-handling-of-syscalls-only-allowed-by-de.patch
-Patch6010:      backport-support-new-pyparsing.patch
-Patch6011:      backport-CVE-2022-21682.patch
-Patch6012:      backport-0001-CVE-2021-43860.patch
-Patch6013:      backport-0002-CVE-2021-43860.patch
-Patch6014:      backport-0003-CVE-2021-43860.patch
-Patch6015:      backport-0004-CVE-2021-43860.patch
-Patch6016:      backport-0005-CVE-2021-43860.patch
 
 BuildRequires:  pkgconfig(appstream-glib) pkgconfig(gio-unix-2.0) pkgconfig(gobject-introspection-1.0) >= 1.40.0 pkgconfig(json-glib-1.0) pkgconfig(libarchive) >= 2.8.0
 BuildRequires:  pkgconfig(libsoup-2.4) pkgconfig(libxml-2.0) >= 2.4 pkgconfig(ostree-1) >= 2020.8 pkgconfig(polkit-gobject-1) pkgconfig(libseccomp) pkgconfig(xau)
@@ -131,6 +110,9 @@ flatpak remote-list --system &> /dev/null || :
 %{_mandir}/man5/flatpak-remote.5*
 
 %changelog
+* Thu Mar 24 2022 Jiacheng Zhou <jchzhou@outlook.com> - 1.12.6
+- Upgrade to 1.12.6
+
 * Sat Jan 29 2022 dongyuzhen <dongyuzhen@h-partners.com> - 1.10.2-5
 - Fix CVE-2021-43860
 
